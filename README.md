@@ -1,6 +1,3 @@
-# Simulation_Algorithm
-# main_simulation.py
-
 import pandas as pd
 from tqdm import tqdm
 import numpy as np
