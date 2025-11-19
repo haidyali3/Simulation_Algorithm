@@ -1,22 +1,5 @@
-# main_simulation.py
 
-import pandas as pd
-from tqdm import tqdm
-import numpy as np
-
-# Importing functions from other modules
-from data_generator import generate_strength_data_baiiph, generate_stress_data_urit
-from frequentist_estimators import calculate_mle, calculate_aci, run_bootstrap
-from bayesian_estimators import run_mcmc
-
-def run_single_replication(scenario_params):
-    """
-    Runs a single replication for a given scenario.
-    This encapsulates one full loop of Algorithm 2.
-    """
-    # =================================================================
     # ALGORITHM 1: Generate Data
-    # =================================================================
     # Part 1: Generate strength data (BAIIPH)
     strength_data = generate_strength_data_baiiph(
         params=scenario_params['true_params'],
@@ -29,9 +12,9 @@ def run_single_replication(scenario_params):
         stress_config=scenario_params['stress_config']
     )
     
-    # =================================================================
+  
     # ALGORITHM 2: Parameter and Reliability Estimation
-    # =================================================================
+    
     # Part 1: Frequentist Estimation
     mle_results = calculate_mle(strength_data, stress_data, scenario_params)
     mle_reliability = mle_results['reliability']
